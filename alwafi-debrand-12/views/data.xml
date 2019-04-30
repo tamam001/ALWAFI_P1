@@ -1,0 +1,33 @@
+<odoo>
+    <data>
+        <record id="base.partner_root" model="res.partner">
+            <field name="name">ChatBot</field>
+            <field name="email">Chatbot@example.com</field>
+            <field name="image" type="base64" file="mail/static/src/img/odoobot.png"/>
+        </record>
+
+        <delete model="ir.ui.menu" id="base.module_mi" />
+        <delete model="ir.ui.menu" id="base.menu_view_base_module_upgrade" />
+
+
+        <template id="_assets_primary_variables_extended" name=" 12 scss file inherited" inherit_id="web._assets_primary_variables">
+            <xpath expr="//link[@href='/web/static/src/scss/primary_variables.scss']" position="inside">
+               <link type="text/scss" href="/alwafi-debrand-12/static/src/scss/primary_variables_inherited.scss"></link>
+               <!-- <link type="text/scss" href="/alwafi-debrand-12/static/src/css/style.css"></link> -->
+           </xpath>
+          
+        </template>
+        <template id="assets_backend" name="app_odoo_customize assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <script type="text/javascript" src="/alwafi-debrand-12/static/src/js/app_window_title.js"></script>
+            </xpath>
+        </template>
+        <template id="assets_backend" name="Backend Assets" inherit_id="web.assets_backend">
+            <xpath expr="//link[last()]" position="after">
+                <link rel="stylesheet" type="text/scss" href="/alwafi-debrand-12/static/src/css/style.css"/>
+            </xpath>
+        </template>
+    </data>
+</odoo>
+
+

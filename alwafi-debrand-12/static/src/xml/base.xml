@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- <template id="web.layout" name="Web layout">&lt;!DOCTYPE html&gt;
+        <html t-att="html_data or {}">
+            <head>
+                <meta charset="utf-8"/>
+                <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+                <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+
+                <title>SFW Technology</title>
+                <link type="image/x-icon" rel="shortcut icon" t-att-href="x_icon or '/web/static/src/img/favicon.ico'"/>
+
+                <script type="text/javascript">
+                    var odoo = {
+                        csrf_token: "<t t-esc="request.csrf_token(None)"/>",
+                    };
+                </script>
+
+                <t t-raw="head or ''"/>
+            </head>
+            <body t-att-class="body_classname">
+                <t t-raw="0"/>
+            </body>
+        </html>
+    </template> -->
+
+<templates id="template" xml:space="preserve">
+    <t t-name="UserMenu.Actions">
+        
+        <a role="menuitem" href="#" data-menu="settings" class="dropdown-item">Preferences</a>
+        <a role="menuitem" href="#" data-menu="logout" class="dropdown-item">Log out</a>
+    </t>
+    <!--<t t-extend="AppSwitcher.Content">-->
+        <!--<t t-jquery="div.o_application_switcher_footer" t-operation="replace">-->
+            <!--<img src="" width="96px" />-->
+        <!--</t>-->
+    <!--</t>-->
+    <t t-name="DashboardMain">
+        <div class="container-fluid py-2 o_web_settings_dashboard">
+            <div class="form-row">
+               <!-- <div class="col-12 col-lg-4 o_web_settings_dashboard_col">
+                    <div class="o_web_settings_dashboard_apps"></div>
+                    <div class="o_web_settings_dashboard_translations"></div>
+                </div> -->
+               <div class="col-12 col-lg-4 o_web_settings_dashboard_col">
+                    <div class="o_web_settings_dashboard_invitations"></div>
+                    <div class="o_web_settings_dashboard_share"></div>
+                    <!-- <div class="o_web_settings_dashboard_company"></div> -->
+                </div>
+               <!-- <div class="col-12 col-lg-4 o_web_settings_dashboard_col">
+                    <div class="o_web_settings_dashboard_share"></div>
+                </div> -->
+            </div>
+        </div>
+    </t>
+     <t t-name="DashboardShare">
+        <div class="text-center o_web_settings_dashboard_share">
+            <!-- <i class="fa fa-share-alt fa-4x text-muted" role="img" aria-label="Share" title="Share"/> -->
+           <!--  <div class="o_web_settings_dashboard_header">Share the Love</div>
+            <div>
+                <small class="text-muted text-center o_web_settings_dashboard_compact_subtitle">
+                    Help us spread the word: Share AlWarfi's awesomeness with your friends!
+                </small>
+            </div>
+            <div class="row mt16">
+                <div class="col-4"><a href="#" aria-label="Twitter" title="Twitter"><i class="fa fa-twitter-square fa-4x tw_share"/></a></div>
+                <div class="col-4"><a href="#" aria-label="Facebook" title="Facebook"><i class="fa fa-facebook-square fa-4x fb_share"/></a></div>
+                <div class="col-4"><a href="#" aria-label="LinkedIn" title="LinkedIn"><i class="fa fa-linkedin-square fa-4x li_share"/></a></div>
+            </div> -->
+            <!-- <hr/>
+            <t t-set="server_version" t-value="widget.data.server_version"/>
+            <t t-set="debug" t-value="widget.data.debug"/>
+            <t t-set="demo_active" t-value="widget.data.demo_active"/> -->
+            <!-- <div class="text-center">
+                <div class="user-heading">
+                    <h3>
+                        AlWarfi <t t-esc="server_version"/>
+                        (Community Edition)
+                    </h3>
+                </div>
+                <div>
+                    <div class="tab-content">
+                        <div role="tabpanel" id="settings" class="tab-pane active text-muted text-center o_web_settings_dashboard_compact_subtitle">
+                            <small>Copyright © 2004 <a target="_blank" href="https://www.odoo.com" style="text-decoration: underline;">AlWarfi S.A.</a> <a target="_blank" href="http://www.gnu.org/licenses/lgpl.html" style="text-decoration: underline;">GNU LGPL Licensed</a></small>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+            <!-- <hr/> -->
+            <!-- <a t-if="debug != true" class="oe_activate_debug_mode float-right" href="?debug" >Activate the developer mode</a>
+            <br t-if="debug != true"/>
+            <a t-if="debug != 'assets'" class="oe_activate_debug_mode float-right" href="?debug=assets" >Activate the developer mode (with assets)</a>
+            <br t-if="debug != 'assets'"/>
+            <a t-if="debug != false" class="oe_activate_debug_mode float-right" href="/web" >Deactivate the developer mode</a>
+            <br t-if="debug != false"/>
+            <a t-if="(debug) and !(demo_active)" class="oe_activate_debug_mode float-right o_web_settings_dashboard_force_demo" href="#">Load demo data</a> -->
+        </div>
+    </t>
+    <t t-extend="mail.client_action">
+      <t t-jquery=".o_mail_request_permission" t-operation="inner">
+        Your permission is required to <a href="#"> enable desktop notifications</a>.
+      </t>
+    </t>
+</templates>
